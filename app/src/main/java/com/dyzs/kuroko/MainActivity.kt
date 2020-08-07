@@ -101,10 +101,57 @@ fun casesDoWhile() {
 }
 
 fun casesBreakAndContinue() {
-    
-
-
+    for (i in 1..10) {
+        if (i % 2 == 0) {
+            break
+        }
+    }
 }
+
+fun casesReturn(a: Int, b: Int): Int {
+    if (a > b)
+        return a - b
+    else
+        return a + b
+}
+
+// 函数数字面量
+fun sum(a: Int, b: Int) = a + b
+
+fun casesMax(a: Int, b: Int) = if ( a > b) a else b
+
+/**
+ * 测试匿名函数返回
+ */
+fun casesAnonymous() {
+    val intArray = intArrayOf(1, 2, 3, 4, 5);
+    intArray.forEach(fun(a: Int) {
+        if (a == 3)return
+        println("value of a:{$a}")
+    })
+}
+
+/**
+ * 在Kotlin中任何表达式都可以用标签（label）来标记。标签的格式 为标识符后跟@符号
+ * like xxx@ or _xxx@
+ * here@ 标签，执行指令跳转到 Lambda 表达式标签 here@ 处，继续下一个 it = 4 的遍历循环
+ *
+ */
+fun casesAtHere() {
+    val intArray = intArrayOf(1,2,3,4,5)
+    intArray.forEach here@ {
+        if (it == 3) return@here
+        println("value of it${it}")
+    }
+}
+
+fun casesNothing(msg: String): Nothing {
+    throw IllegalArgumentException(msg)
+}
+
+
+
+
 
 
 
